@@ -1,0 +1,54 @@
+version: '2'
+services:
+  estored:
+    build: .
+    image: gprevost/estored:latest
+    ports:
+     - "8080:8080"
+     - "8443:8443"
+    env_file: .env
+    depends_on:
+     - makecerts
+     - mysql-server
+     - rabbitmq-server
+    networks:
+      - estored
+    volumes:
+     - ./certs:/certs:ro
+     
+  mysql-server:
+    image: mysql:latest
+    ports: 
+      - "3306:3306"
+    env_file: .env
+    networks:
+      - estored
+
+  rabbitmq-server:
+    build: rabbitmq-ssl
+    image: gprevost/rabbitmq-ssl:latest
+    ports:
+      - "5671:5671"
+      - "61613:61613"
+      - "61614:61614"
+      - "15671:15671"
+      - "15670:15670"
+      - "15672:15672"
+      - "15674:15674"
+    env_file: .env
+    networks:
+      - estored
+
+  makecerts:
+    build: makecerts
+    image: gprevost/makecerts:latest
+    volumes:
+        - ./certs:/opt/certs
+    command:
+        "/run.sh"
+    networks:
+      - estored
+    
+networks:
+  estored:
+    driver: bridge
