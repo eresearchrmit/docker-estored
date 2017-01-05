@@ -1,2 +1,6 @@
 .env
 certs/**
+.DS_Store
+estored-examples-datasource/*.jar
+estored-mytardis-datasource/*.jar
+estored/*.jar

@@ -48,6 +48,28 @@ services:
         "/run.sh"
     networks:
       - estored
+
+  estored-examples-datasource:
+    build: estored-examples-datasource
+    image: gprevost/estored-examples-datasource:latest
+    env_file: .env
+    depends_on:
+     - rabbitmq-server
+    networks:
+      - estored
+    volumes:
+     - ./certs:/certs:ro
+     
+  estored-mytardis-datasource:
+    build: estored-mytardis-datasource
+    image: gprevost/estored-mytardis-datasource:latest
+    env_file: .env
+    depends_on:
+     - rabbitmq-server
+    networks:
+      - estored
+    volumes:
+     - ./certs:/certs:ro
     
 networks:
   estored:
