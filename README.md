@@ -1,4 +1,4 @@
-[![Build Status](https://semaphoreci.com/api/v1/projects/c912eda0-6a43-43d5-a389-1daf42596155/849724/badge.svg)](https://semaphoreci.com/gprevost/docker-estored)
+[![Build Status](https://semaphoreci.com/api/v1/projects/d9c5d22b-453b-40b2-a240-842e24a2167b/1082508/badge.svg)](https://semaphoreci.com/gprevost/docker-estored)
 
 Installation
 ============
