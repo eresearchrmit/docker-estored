@@ -9,6 +9,7 @@ VOLUME /certs
 
 ADD scripts /scripts
 RUN chmod +x /scripts/*.sh
-ENTRYPOINT ["/scripts/run.sh"]
 
-#CMD java -cp estored-examples-datasource.jar edu.rmit.eres.estored.datasource.examples.ExamplesDatasource
+VOLUME /datafiles
+
+ENTRYPOINT ["/scripts/run.sh"]

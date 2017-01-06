@@ -59,6 +59,7 @@ services:
       - estored
     volumes:
      - ./certs:/certs:ro
+     - ./estored-examples-datasource/datafiles:/datafiles:ro
      
   estored-mytardis-datasource:
     build: estored-mytardis-datasource
