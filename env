@@ -21,6 +21,10 @@ RABBITMQ_BROKER_ADDRESS=192.168.99.100
 # The host name or IP address of the RabbitMQ broker
 RABBITMQ_BROKER_HOST=rabbitmq-server
 
+# Username and password of the administrator user, with all permissions on the RabbitMQ Virtual Host '/'
+RABBITMQ_ADMIN_NAME=rabbitmq-admin
+RABBITMQ_ADMIN_PASSWORD=rabbitmq-admin-pw
+
 # Username and password of the RabbitMQ user having READ and WRITE permissions on the RabbitMQ Virtual Host 'estored'
 RABBITMQ_USER_NAME=estored-user
 RABBITMQ_USER_PASSWORD=estored-user-pw
