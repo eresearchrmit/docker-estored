@@ -4,8 +4,8 @@ services:
     build: .
     image: gprevost/estored:latest
     ports:
-     - "8080:8080"
-     - "8443:8443"
+     - $ESTORED_PORT:8080
+     - $ESTORED_SSL_PORT:8443
     env_file: .env
     depends_on:
      - makecerts
@@ -19,7 +19,7 @@ services:
   mysql-server:
     image: mysql:latest
     ports: 
-      - "3306:3306"
+      - $MYSQL_PORT:3306
     env_file: .env
     networks:
       - estored
@@ -28,13 +28,9 @@ services:
     build: rabbitmq-ssl
     image: gprevost/rabbitmq-ssl:latest
     ports:
-      - "5671:5671"
-      - "61613:61613"
-      - "61614:61614"
-      - "15671:15671"
-      - "15670:15670"
-      - "15672:15672"
-      - "15674:15674"
+      - $RABBITMQ_BROKER_PORT:5671
+      - $RABBITMQ_BROKER_STOMP_PORT:15671
+      - $RABBITMQ_BROKER_MANAGEMENT_PORT:15672
     env_file: .env
     networks:
       - estored

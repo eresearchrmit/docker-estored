@@ -20,13 +20,9 @@ ADD scripts /scripts
 RUN chmod +x /scripts/*.sh
 
 # Ports are:
-# * 5672 TCP AMQP
 # * 5671 SSL AMQP
-# * 61613 TCP STOMP
-# * 61614 SSL STOMP
-# * 15671 SSL Web STOMP
-# * 15672 Management
-# * 15674 Web STOMP
-EXPOSE 5671 61613 61614 15671 15672 15674
+# * 15671 SSL STOMP
+# * 15672 Management Console (http)
+EXPOSE 5671 15671 15672
 
 CMD ["/scripts/run.sh"]
