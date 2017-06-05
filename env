@@ -9,6 +9,9 @@ ESTORED_PORT=8080
 # Port for eStoRED HTTPS traffic
 ESTORED_SSL_PORT=8443
 
+# Whether eStoRED handles automatic redirection from HTTP to HTTPS 
+ESTORED_SSL_AUTOREDIRECT=false
+
 
 # SSL SETTINGS
 
