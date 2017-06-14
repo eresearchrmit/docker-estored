@@ -41,7 +41,7 @@ Installation
 	- 6.3 - Create a metadata schema for datafiles with a key-value pair where the key is "handled-data-type" and the value is a String.
 	- 6.4 - Create an Experiment and upload your visualisers into Datasets of this MyTardis Experiment. You need to make the Vislet files publicly available for eStoRED to access them.
 	- 6.5 - Add metadata "handled-data-type" field using the schema defined in step 6.3 to the Vislet files to define which MIME type they handle (one Vislet can handle multiple MIME types). So far, eStoRED limits data types to: *text/plain, text/csv, application/json, application/vnd.geo+json*
-
+   
 6. **Copy** `env` **file into** `.env` **file**
 	
 	```
@@ -52,8 +52,19 @@ Installation
 
 	[See env file for documentation of the environment variables.](env)
 
+9. **[Optional] Import existing eStoRED data.**
 
-8. **Build** ***OR*** **retrieve the docker images**
+   You can initialise the MySQL database with existing data by placing an SQL dump of the data in the folder *mysql/init/*. The MySQL container will execute all .sh .sql and .sql.gz scripts present in that folder.
+
+   To create database dump from eStoRED MySQL database, run the following command:
+
+   ```
+	docker exec MYSQLCONTAINER sh -c 'exec mysqldump --all-databases -u"MYSQLUSERNAME" -p"MYSQLPASSWORD"' > ./path/to/your/mysql/dump/estored-database-dump.sql
+	```
+	
+   This will generate a file suitable to be placed into *mysql/init/* at the path specified. See: 'Initializing a fresh instance' at [https://hub.docker.com/_/mysql/](https://hub.docker.com/_/mysql/) for more details.
+
+9. **Build** ***OR*** **retrieve the docker images**
 
 	The recommanded way is to retrieve pre-built and tested docker images from the Docker Hub, using the *pull* command:
 
@@ -74,7 +85,7 @@ Installation
 	```
 	
 
-9. **Create and start the containers**
+10. **Create and start the containers**
 	
 	```
 	docker-compose up -d
@@ -89,8 +100,8 @@ The a container will be created for each datasource but will automatically exit 
 Docker images used
 ==================
 
-The **official MySQL docker image** is used without modification.  
-Complete documentation of the MySQL Docker imqge at: https://hub.docker.com/_/mysql/  
+The **official MySQL docker image (version 5.7)** is used without modification.  
+Complete documentation of the MySQL Docker image at: https://hub.docker.com/_/mysql/   
   
 A **modified version of the official RabbitMQ Docker image** is used, in order to enable SSL.  
 Complete documentation of the official RabbitMQ image at: https://hub.docker.com/_/rabbitmq/  

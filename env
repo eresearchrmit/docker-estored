@@ -39,7 +39,9 @@ RABBITMQ_BROKER_STOMP_PORT=15671
 RABBITMQ_BROKER_MANAGEMENT_PORT=15672
 
 # The host name or IP address of the RabbitMQ broker
-RABBITMQ_BROKER_HOST=rabbitmq-server
+RABBITMQ_BROKER_HOST=rabbitmq
+
+RABBITMQ_VHOST=/estored
 
 # Username and password of the administrator user, with all permissions on the RabbitMQ Virtual Host '/'
 RABBITMQ_ADMIN_NAME=rabbitmq-admin
@@ -56,7 +58,7 @@ RABBITMQ_CONSUMER_PASSWORD=estored-consumer-pw
 
 # MYSQL SETTINGS
 
-MYSQL_HOST=mysql-server
+MYSQL_HOST=mysql
 
 # External port for MySQL database (internal port remains 3306)
 MYSQL_PORT=3306
@@ -76,7 +78,7 @@ MYSQL_USER=mysqluser
 MYSQL_PASSWORD=mysqlpassword
 
 # The connection string used by the web application to connect to MySQL database (port remains 3306)
-MYSQL_URL=jdbc:mysql://mysql-server:3306/estored-db
+MYSQL_URL=jdbc:mysql://mysql:3306/estored-db
 
 
 # ESTORED KENLET REPOSITORY SETTINGS

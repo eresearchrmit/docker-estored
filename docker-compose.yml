@@ -1,5 +1,7 @@
 version: '2'
+
 services:
+
   estored:
     build: .
     image: gprevost/estored:latest
@@ -9,22 +11,28 @@ services:
     env_file: .env
     depends_on:
      - makecerts
-     - mysql-server
-     - rabbitmq-server
+     - mysql
+     - rabbitmq
     networks:
       - estored
     volumes:
      - ./certs:/certs:ro
      
-  mysql-server:
-    image: mysql:latest
+  mysql:
+    image: mysql:5.7
     ports: 
       - $MYSQL_PORT:3306
-    env_file: .env
+    environment:
+      - MYSQL_USER=$MYSQL_USER
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE=$MYSQL_DATABASE
+    volumes:
+     - ./mysql/init:/docker-entrypoint-initdb.d 
     networks:
       - estored
 
-  rabbitmq-server:
+  rabbitmq:
     build: rabbitmq-ssl
     image: gprevost/rabbitmq-ssl:latest
     ports:
@@ -32,42 +40,45 @@ services:
       - $RABBITMQ_BROKER_STOMP_PORT:15671
       - $RABBITMQ_BROKER_MANAGEMENT_PORT:15672
     env_file: .env
+    volumes:
+      - ./rabbitmq-ssl/config:/etc/rabbitmq
     networks:
       - estored
 
   makecerts:
     build: makecerts
     image: gprevost/makecerts:latest
-    volumes:
-        - ./certs:/opt/certs
     command:
         "/run.sh"
+    volumes:
+        - ./certs:/opt/certs
     networks:
       - estored
 
-  estored-examples-datasource:
+  ds-examples:
     build: estored-examples-datasource
     image: gprevost/estored-examples-datasource:latest
     env_file: .env
     depends_on:
-     - rabbitmq-server
-    networks:
-      - estored
+     - rabbitmq
     volumes:
      - ./certs:/certs:ro
      - ./estored-examples-datasource/datafiles:/datafiles:ro
-     
-  estored-mytardis-datasource:
+    networks:
+      - estored
+
+  ds-mytardis:
     build: estored-mytardis-datasource
     image: gprevost/estored-mytardis-datasource:latest
     env_file: .env
     depends_on:
-     - rabbitmq-server
-    networks:
-      - estored
+     - rabbitmq
     volumes:
      - ./certs:/certs:ro
-    
+    networks:
+      - estored
+
+
 networks:
   estored:
     driver: bridge
