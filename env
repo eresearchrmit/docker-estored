@@ -12,6 +12,13 @@ ESTORED_SSL_PORT=8443
 # Whether eStoRED handles automatic redirection from HTTP to HTTPS 
 ESTORED_SSL_AUTOREDIRECT=false
 
+# Credentials of initial superuser
+ESTORED_SUPERUSER_USERNAME=root
+ESTORED_SUPERUSER_PASSWORD=ereskenletsrepo
+ESTORED_SUPERUSER_EMAIL=root@kenletsrepo.eres.rmit.edu.au
+ESTORED_SUPERUSER_FIRSTNAME=root
+ESTORED_SUPERUSER_LASTNAME=admin
+
 
 # SSL SETTINGS
 
