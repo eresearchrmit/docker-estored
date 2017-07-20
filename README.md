@@ -5,7 +5,7 @@ Installation
 
 1. **Install Docker and Docker Compose**
 
-2. **Retrieve the project from the Bitbucket repository:** https://bitbucket.org/guillaumeprevost/docker-estored
+2. **Retrieve the project from the Bitbucket repository:** https://bitbucket.org/eresearchrmit/docker-estored
 
 3. **Copy or generate SSL certificate**
 
@@ -74,9 +74,9 @@ Installation
 
 	If you want to rebuild the Docker images from the project, you will first need to build the JAR files for eStoRED web application as well as for the different datasources, then place them into their respective folders.
 	
-	- Copy *estored.jar* in the *estored* folder (see [guillaumeprevost/estored](https://bitbucket.org/guillaumeprevost/estored)).
-	- Copy *estored-examples-datasource.jar* in the *estored-examples-datasource* folder (see [guillaumeprevost/estored-examples-datasource](https://bitbucket.org/guillaumeprevost/estored-examples-datasource)).
-	- Copy *estored-mytardis-datasource.jar* in the *estored-mytardis-datasource* folder (see [guillaumeprevost/estored-mytardis-datasource](https://bitbucket.org/guillaumeprevost/estored-mytardis-datasource)).
+	- Copy *estored.jar* in the *estored* folder (see [eresearchrmit/estored](https://bitbucket.org/eresearchrmit/estored)).
+	- Copy *estored-examples-datasource.jar* in the *estored-examples-datasource* folder (see [eresearchrmit/estored-examples-datasource](https://bitbucket.org/eresearchrmit/estored-examples-datasource)).
+	- Copy *estored-mytardis-datasource.jar* in the *estored-mytardis-datasource* folder (see [eresearchrmit/estored-mytardis-datasource](https://bitbucket.org/eresearchrmit/estored-mytardis-datasource)).
 	
 	Build the docker images using the *build* command:
 	
@@ -121,5 +121,5 @@ The **eStoRED MyTardis datasource** is a listener for RabbitMQ binding key on a 
 License
 =======
 
-eStoRED is distributed under the 3-clause "New" BSD License. See [LICENSE.txt](https://bitbucket.org/guillaumeprevost/e-stored/src/master/LICENSE.txt) file.
+eStoRED is distributed under the 3-clause "New" BSD License. See [LICENSE.txt](https://bitbucket.org/eresearchrmit/estored/src/master/LICENSE.txt) file.
 

@@ -119,10 +119,13 @@ AAF_ISSUER=https://rapid.aaf.edu.au
 AAF_AUDIENCE=
 
 
-# DATASOURCES
+# CONNECTORS
+
+# Enable or not a default connector to web services (set to 'true' to enable, omit or set to 'false' to disable)
+CONNECTOR_WEBSERVICE_ENABLED=true
 
 # Enable or not a default datasource that connects to MyTardis instances an retrieve data and metadata (set to 'true' to enable, omit or set to 'false' to disable)
-DATASOURCE_MYTARDIS_ENABLED=true
+DATASOURCE_MYTARDIS_ENABLED=false
 
 # Enable or not a default datasource that generates and sends pre-defined example data, useful for demonstration and testing (set to 'true' to enable, omit or set to 'false' to disable)
 DATASOURCE_EXAMPLES_ENABLED=true
