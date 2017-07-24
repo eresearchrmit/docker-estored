@@ -11,4 +11,4 @@ ADD scripts /scripts
 RUN chmod +x /scripts/*.sh
 ENTRYPOINT ["/scripts/run.sh"]
 
-#CMD java -cp estored-connector-webservice.jar edu.rmit.eres.estored.datasource.mytardis.WebServiceConnector
+#CMD java -cp estored-connector-webservice.jar edu.rmit.eres.estored.connectors.WebServiceConnector
