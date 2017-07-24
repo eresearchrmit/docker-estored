@@ -10,4 +10,4 @@ scripts/waitforit.sh -t 30 $RABBITMQ_BROKER_HOST:15672
 
 sleep 15s  # Waits 15 seconds
 
-java -cp estored-connector-webservice.jar edu.rmit.eres.estored.datasource.mytardis.WebServiceConnector
+java -cp estored-connector-webservice.jar edu.rmit.eres.estored.connectors.WebServiceConnector
