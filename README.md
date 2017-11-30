@@ -1,4 +1,4 @@
-[![Build Status](https://semaphoreci.com/api/v1/projects/d9c5d22b-453b-40b2-a240-842e24a2167b/1082508/badge.svg)](https://semaphoreci.com/gprevost/docker-estored)
+[![Build Status](https://semaphoreci.com/api/v1/projects/d9c5d22b-453b-40b2-a240-842e24a2167b/1082508/badge.svg)](https://semaphoreci.com/rmit_eresearch_office/docker-estored)
 
 Installation
 ============
@@ -121,5 +121,5 @@ The **eStoRED MyTardis datasource** is a listener for RabbitMQ binding key on a 
 License
 =======
 
-eStoRED is distributed under the 3-clause "New" BSD License. See [LICENSE.txt](https://bitbucket.org/eresearchrmit/estored/src/master/LICENSE.txt) file.
+eStoRED is distributed under the 3-clause "New" BSD License. See [LICENSE.txt](https://bitbucket.org/eresearchrmit/docker-estored/src/master/LICENSE.txt) file.
 
